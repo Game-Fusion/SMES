@@ -1,0 +1,107 @@
+-- Super MES
+-- Concept and Menu code etc. by Mr_Iron2
+-- Wrapper by Gonow32
+-- Original pastebin: G0d0nAPk
+--some pastebin code amirite
+-- god on apk
+
+local w,h = term.getSize()
+local current = term.current()
+function term.current()
+  return window.create(current,1,1,current.getSize())
+end
+
+local oldback = term.setBackgroundColour
+function term.setBackgroundColor(colour)
+  if colour == 1 then
+    oldback(colour)
+  else
+    oldback(colours.black)
+  end
+end
+
+term.setBackgroundColour = term.setBackgroundColor
+
+local oldtext = term.setTextColour
+function term.setTextColor(colour)
+  if colour == 32768 then
+    oldtext(colour)
+  else
+    oldtext(colours.white)
+  end  
+end
+
+term.setTextColour = term.setTextColor
+
+if disk.isPresent("right") then 
+  if disk.hasData("right") then 
+    if fs.exists("/disk/game") then 
+      shell.run("/disk/game")
+    end
+  end
+elseif disk.isPresent("left") then 
+  if disk.hasData("left") then 
+    if fs.exists("/disk/game") then 
+      shell.run("/disk/game")
+    end
+  end
+elseif disk.isPresent("top") then 
+  if disk.hasData("top") then 
+    if fs.exists("/disk/game") then 
+      shell.run("/disk/game")
+    end
+  end
+elseif disk.isPresent("bottom") then 
+  if disk.hasData("bottom") then 
+    if fs.exists("/disk/game") then 
+      shell.run("/disk/game")
+    end
+  end
+elseif disk.isPresent("front") then 
+  if disk.hasData("front") then 
+    if fs.exists("/disk/game") then 
+      shell.run("/disk/game")
+    end
+  end
+elseif disk.isPresent("back") then 
+  if disk.hasData("back") then 
+    if fs.exists("/disk/game") then 
+      shell.run("/disk/game")
+    end
+  end
+end
+
+function center(y,str)
+  local w,h = term.getSize()
+  local x = (w/2)-(#str/2)
+  term.setCursorPos(x,y)
+  print(str)
+end
+
+function centerSlow(y,txt)
+  local w,h = term.getSize()
+  local x = (w/2)-(#txt/2)
+  term.setCursorPos(x,y)
+  textutils.slowPrint(txt)
+end
+
+local function line(y)
+  term.setCursorPos(1,y)
+  term.clearLine()
+end
+
+local function wait()
+  sleep(0.15) -- I've made this a function so if the timing is wrong, I can change
+end
+term.setBackgroundColour(colours.white)
+term.clear()
+sleep(0.25)
+term.setBackgroundColour(colours.black)
+for i = 1,h do
+  line(i)
+  wait()
+end
+sleep(0.5)
+term.setTextColour(colours.white)
+centerSlow(8,"Welcome to Super MES.")
+sleep(1.5)
