@@ -1,3 +1,5 @@
+# The MES line has been terminated. Thank you to all MES customers.
+
 # Super MES
 Super Monochrome Entertainment System, or SMES for short, is the successor to the MES.
 
