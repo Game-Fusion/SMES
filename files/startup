@@ -2,14 +2,14 @@
 -- Concept and Menu code etc. by Mr_Iron2
 -- Wrapper by Gonow32
 -- Original pastebin: G0d0nAPk
---some pastebin code amirite
--- god on apk
 
 local w,h = term.getSize()
 local current = term.current()
 function term.current()
   return window.create(current,1,1,current.getSize())
 end
+
+-- Wrapper
 
 local oldback = term.setBackgroundColour
 function term.setBackgroundColor(colour)
@@ -33,44 +33,7 @@ end
 
 term.setTextColour = term.setTextColor
 
-if disk.isPresent("right") then 
-  if disk.hasData("right") then 
-    if fs.exists("/disk/game") then 
-      shell.run("/disk/game")
-    end
-  end
-elseif disk.isPresent("left") then 
-  if disk.hasData("left") then 
-    if fs.exists("/disk/game") then 
-      shell.run("/disk/game")
-    end
-  end
-elseif disk.isPresent("top") then 
-  if disk.hasData("top") then 
-    if fs.exists("/disk/game") then 
-      shell.run("/disk/game")
-    end
-  end
-elseif disk.isPresent("bottom") then 
-  if disk.hasData("bottom") then 
-    if fs.exists("/disk/game") then 
-      shell.run("/disk/game")
-    end
-  end
-elseif disk.isPresent("front") then 
-  if disk.hasData("front") then 
-    if fs.exists("/disk/game") then 
-      shell.run("/disk/game")
-    end
-  end
-elseif disk.isPresent("back") then 
-  if disk.hasData("back") then 
-    if fs.exists("/disk/game") then 
-      shell.run("/disk/game")
-    end
-  end
-end
-
+if fs.exists("/disk/game") then shell.run("/disk/game") 
 function center(y,str)
   local w,h = term.getSize()
   local x = (w/2)-(#str/2)
