@@ -34,6 +34,8 @@ end
 term.setTextColour = term.setTextColor
 
 if fs.exists("/disk/game") then shell.run("/disk/game") 
+if fs.exists("/disk/smesupdate") then shell.run("/disk/smesupdate")
+
 function center(y,str)
   local w,h = term.getSize()
   local x = (w/2)-(#str/2)
@@ -56,15 +58,19 @@ end
 local function wait()
   sleep(0.15) -- I've made this a function so if the timing is wrong, I can change
 end
+
 term.setBackgroundColour(colours.white)
 term.clear()
 sleep(0.25)
 term.setBackgroundColour(colours.black)
+
+-- Line animation from top to bottom of screen
 for i = 1,h do
   line(i)
   wait()
 end
 sleep(0.5)
+
 term.setTextColour(colours.white)
 centerSlow(8,"Welcome to Super MES.")
 sleep(1.5)
